@@ -3,6 +3,7 @@
 take a look into: https://github.com/vibeconn/erpnext-custom if issues
 
 **docker build**
+to create apps.json see simple example. THEY JUST ENTERED BOTH COMMANDS IN TERMINAL AS IS (from documentation)
 if issues with building docker image begins, use: docker build --no-cache \
 NO WINOWS WSL during docker build command execution
 --tag=custom/hrms:latest does not work use: --tag=custom/hrms:1.0.0 \
