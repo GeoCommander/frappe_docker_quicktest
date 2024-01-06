@@ -1,5 +1,7 @@
 ## Main tips
 
+take a look into: https://github.com/vibeconn/erpnext-custom if issues
+
 **docker build**
 if issues with building docker image begins, use: docker build --no-cache \
 NO WINOWS WSL during docker build command execution
