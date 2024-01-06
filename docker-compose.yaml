@@ -68,10 +68,11 @@ services:
         done;
         echo "sites/common_site_config.json found";
         bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app erpnext --set-default frontend;
-        #bench --site frontend install-app payments; 
+        bench --site frontend install-app hrms;
+        bench --site frontend install-app payments;
 
   db:
-    image: mariadb:10.6
+    image: mariadb:11.2
     healthcheck:
       test: mysqladmin ping -h localhost --password=admin
       interval: 1s
@@ -130,6 +131,7 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
+    depends_on: ["backend"]
     command:
       - bench
       - worker
@@ -160,6 +162,7 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
+    depends_on: ["backend"]
     command:
       - bench
       - schedule
