@@ -1,4 +1,4 @@
-version: "3"
+  version: "3"
 
 services:
   backend:
@@ -67,10 +67,8 @@ services:
           fi
         done;
         echo "sites/common_site_config.json found";
-        bench get-app hrms;
         bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app erpnext --set-default frontend;
-        #bench --site frontend install-app hrms;
-        #bench --site frontend install-app payments;
+        bench --site frontend install-app payments;
 
   db:
     image: mariadb:10.6
@@ -112,34 +110,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
     ports:
       - "8080:8080"
-      #This is the section added from overides to test
-    labels:
-          - traefik.enable=true
-          - traefik.http.services.frontend.loadbalancer.server.port=8080
-          - traefik.http.routers.frontend-http.entrypoints=websecure
-          - traefik.http.routers.frontend-http.tls.certresolver=main-resolver
-          - traefik.http.routers.frontend-http.rule=Host(${SITES:?List of sites not set})
 
-      proxy:
-        image: traefik:2.5
-        command:
-          - --providers.docker=true
-          - --providers.docker.exposedbydefault=false
-          - --entrypoints.web.address=:80
-          - --entrypoints.web.http.redirections.entrypoint.to=websecure
-          - --entrypoints.web.http.redirections.entrypoint.scheme=https
-          - --entrypoints.websecure.address=:443
-          - --certificatesResolvers.main-resolver.acme.httpChallenge=true
-          - --certificatesResolvers.main-resolver.acme.httpChallenge.entrypoint=web
-          - --certificatesResolvers.main-resolver.acme.email=${LETSENCRYPT_EMAIL:?No Let's Encrypt email set}
-          - --certificatesResolvers.main-resolver.acme.storage=/letsencrypt/acme.json
-        ports:
-          - 80:80
-          - 443:443
-        volumes:
-          - cert-data:/letsencrypt
-          - /var/run/docker.sock:/var/run/docker.sock:ro
-      # end of overrides
   queue-long:
     image: frappe/erpnext:v15.9.1
     deploy:
@@ -208,12 +179,9 @@ services:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
 
-### testing overrides HTTPS SERVICE I added cert-data into volumes:    
-
 volumes:
   db-data:
   redis-queue-data:
   redis-cache-data:
   sites:
-  cert-data:
   logs:
