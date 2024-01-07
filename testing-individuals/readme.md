@@ -8,7 +8,7 @@ export APPS_JSON='[
     "branch": "version-15"
   },
   {
-    "url": "https://github.com/frappe/lms.git",
+    "url": "https://github.com/frappe/lms",
     "branch": "main"
   }
 ]'
