@@ -8,7 +8,7 @@ export APPS_JSON='[
     "branch": "version-15"
   },
   {
-    "url": "https://github.com/frappe/drive",
+    "url": "https://github.com/frappe/ecommerce_integrations",
     "branch": "main"
   }
 ]'
