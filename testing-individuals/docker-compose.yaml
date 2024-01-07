@@ -67,7 +67,12 @@ services:
           fi
         done;
         echo "sites/common_site_config.json found";
-        bench new-site --install-app drive frontend; # individual test
+        bench new-site frontend;
+        bench --site frontend add-to-hosts;
+        bench --site frontend install-app drive;
+        bench start;
+        cd apps/drive && yarn dev;
+        #bench new-site --install-app websocket drive frontend; # individual test
         #bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app lending --set-default frontend; #test with erpnext
         #bench --site frontend install-app websocket;
 
