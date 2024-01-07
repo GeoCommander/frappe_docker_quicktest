@@ -8,8 +8,8 @@ export APPS_JSON='[
     "branch": "version-15"
   },
   {
-    "url": "https://github.com/frappe/lms",
-    "branch": "main"
+    "url": "https://github.com/frappe/lending",
+    "branch": "version-15"
   }
 ]'
 export APPS_JSON_BASE64=$(echo ${APPS_JSON} | base64 -w 0)
