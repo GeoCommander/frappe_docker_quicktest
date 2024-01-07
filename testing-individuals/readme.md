@@ -8,7 +8,7 @@ export APPS_JSON='[
     "branch": "version-15"
   },
   {
-    "url": "https://github.com/frappe/hrms",
+    "url": "https://github.com/frappe/lending.git",
     "branch": "version-15"
   }
 ]'
