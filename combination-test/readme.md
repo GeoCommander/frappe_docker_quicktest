@@ -49,3 +49,16 @@ docker build --no-cache \
   --file=images/custom/Containerfile .
 
 ```
+
+
+```
+sudo docker login -u gioe1996
+```
+
+```
+sudo docker tag custom/hrms:1.0.0 gioe1996/test-erpnext:latest
+```
+
+```
+ilder.md
+```
