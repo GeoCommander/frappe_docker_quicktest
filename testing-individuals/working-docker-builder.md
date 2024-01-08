@@ -67,3 +67,4 @@ future app installations:
 - bench --site test.orisi.rako.ge install-app <appname> 
 - bench -site test.orisi.rako.ge migrate
 - bench --site test.orisi.rako.ge build
+- stack გააჩერე და ჩართე
