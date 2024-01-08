@@ -61,7 +61,9 @@ future app installations:
 
 - go to frontend container
 - cd apps
-- git clone <frappe app github url>
-- cd ..
+- git clone <frappe app github url> if you need specific branch git clone -b version-15 <frappe app girhub url>
+- bench get-app <appname>
+- overide? -no install? -yes
 - bench --site test.orisi.rako.ge install-app <appname> 
-
+- bench -site test.orisi.rako.ge migrate
+- bench --site test.orisi.rako.ge build
