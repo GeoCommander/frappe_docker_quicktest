@@ -73,9 +73,19 @@ services:
         echo 'y' | bench get-app --branch version-15 webshop https://github.com/frappe/webshop;
         echo 'y' | bench get-app --branch main helpdesk https://github.com/frappe/helpdesk;
         echo 'y' | bench get-app --branch main ecomerce_integrations https://github.com/frappe/ecommerce_integrations;
-        echo 'y' | bench get-app --branch main raven https://github.com/The-Commit-Company/Raven; #did not install
+        #echo 'y' | bench get-app --branch main raven https://github.com/The-Commit-Company/Raven; #did not auto-download and created some issues
         echo 'y' | bench get-app --branch master translator https://github.com/frappe/translator; #did not install
-        echo 'y' | bench get-app --branch master wiki https://github.com/frappe/wiki;
+        echo 'y' | bench get-app --branch master wiki https://github.com/frappe/wiki; #did not install
+
+        bench --site test.orisi.rako.ge install-app hrms;
+        bench --site test.orisi.rako.ge install-app payments;
+        bench --site test.orisi.rako.ge install-app webshop;
+        bench --site test.orisi.rako.ge install-app helpdesk;
+        bench --site test.orisi.rako.ge install-app ecomerce_integrations; #some issues
+        bench --site test.orisi.rako.ge install-app raven; #got installed
+        bench --site test.orisi.rako.ge install-app translator; 
+
+        
         #bench --site test.orisi.rako.ge install-app payments;
         #bench --site test.orisi.rako.ge migrate;
         #bench --site test.orisi.rako.ge build;
