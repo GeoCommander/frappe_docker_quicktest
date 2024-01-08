@@ -27,7 +27,7 @@ export APPS_JSON='[
   },
   {
     "url": "https://github.com/The-Commit-Company/Raven",
-    "branch": "develop"
+    "branch": "main"
   },
   {
     "url": "https://github.com/frappe/translator",
