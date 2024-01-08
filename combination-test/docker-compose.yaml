@@ -81,7 +81,7 @@ services:
         bench --site test.orisi.rako.ge install-app payments;
         bench --site test.orisi.rako.ge install-app webshop;
         bench --site test.orisi.rako.ge install-app helpdesk;
-        bench --site test.orisi.rako.ge install-app ecomerce_integrations; #some issues
+        bench --site test.orisi.rako.ge install-app ecommerce_integrations; #some issues
         bench --site test.orisi.rako.ge install-app raven; #got installed BUT causing issues
         bench --site test.orisi.rako.ge install-app translator; #got installed
         bench --site test.orisi.rako.ge install-app wiki;
