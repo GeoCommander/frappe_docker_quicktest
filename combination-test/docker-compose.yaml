@@ -73,7 +73,7 @@ services:
         echo 'y' | bench get-app --branch version-15 webshop https://github.com/frappe/webshop;
         echo 'y' | bench get-app --branch main helpdesk https://github.com/frappe/helpdesk;
         echo 'y' | bench get-app --branch main ecomerce_integrations https://github.com/frappe/ecommerce_integrations;
-        echo 'y' | bench get-app --branch main raven https://github.com/The-Commit-Company/Raven;
+        echo 'y' | bench get-app --branch main raven https://github.com/The-Commit-Company/Raven; #did not install
         echo 'y' | bench get-app --branch master translator https://github.com/frappe/translator;
         echo 'y' | bench get-app --branch master wiki https://github.com/frappe/wiki;
         #bench --site test.orisi.rako.ge install-app payments;
