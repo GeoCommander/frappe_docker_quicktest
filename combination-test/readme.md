@@ -47,8 +47,6 @@ docker build --no-cache \
   --build-arg=APPS_JSON_BASE64=$APPS_JSON_BASE64 \
   --tag=custom/hrms:1.0.0 \
   --file=images/custom/Containerfile .
-
-
 ```
 
 
