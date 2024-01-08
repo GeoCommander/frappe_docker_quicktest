@@ -60,5 +60,5 @@ sudo docker tag custom/hrms:1.0.0 gioe1996/test-erpnext:latest
 ```
 
 ```
-ilder.md
+sudo docker push gioe1996/test-erpnext:latest
 ```
