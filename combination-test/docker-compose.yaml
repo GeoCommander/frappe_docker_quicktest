@@ -74,8 +74,8 @@ services:
         echo 'y' | bench get-app --branch main helpdesk https://github.com/frappe/helpdesk;
         echo 'y' | bench get-app --branch main ecomerce_integrations https://github.com/frappe/ecommerce_integrations;
         #echo 'y' | bench get-app --branch develop raven https://github.com/The-Commit-Company/Raven; #did not auto-download and created some issues
-        echo 'y' | bench get-app --branch master translator https://github.com/frappe/translator; #did not install
-        echo 'y' | bench get-app --branch master wiki https://github.com/frappe/wiki; #did not install
+        echo 'y' | bench get-app --branch master translator https://github.com/frappe/translator; #did not download but I dont even think I need this?
+        echo 'y' | bench get-app --branch master wiki https://github.com/frappe/wiki; #did not download but it got installed
 
         bench --site test.orisi.rako.ge install-app hrms;
         bench --site test.orisi.rako.ge install-app payments;
