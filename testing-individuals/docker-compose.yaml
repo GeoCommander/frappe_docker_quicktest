@@ -67,11 +67,11 @@ services:
           fi
         done;
         echo "sites/common_site_config.json found";
-        bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app erpnext --set-default frontend; #test with erpnext
-        bench --site frontend install-app ecommerce_integrations;
-        #bench new-site --install-app websocket drive frontend; # individual test
-        #bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app lending --set-default frontend; #test with erpnext
-        #bench --site frontend install-app websocket;
+        bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app erpnext --set-default test.orisi.rako.ge; #test with erpnext
+        bench --site test.orisi.rako.ge install-app ecommerce_integrations;
+        #bench new-site --install-app websocket drive test.orisi.rako.ge; # individual test
+        #bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app lending --set-default test.orisi.rako.ge; #test with erpnext
+        #bench --site test.orisi.rako.ge install-app websocket;
 
   db:
     image: mariadb:10.6
@@ -101,7 +101,7 @@ services:
       - nginx-entrypoint.sh
     environment:
       BACKEND: backend:8000
-      FRAPPE_SITE_NAME_HEADER: frontend
+      FRAPPE_SITE_NAME_HEADER: test.orisi.rako.ge
       SOCKETIO: websocket:9000
       UPSTREAM_REAL_IP_ADDRESS: 127.0.0.1
       UPSTREAM_REAL_IP_HEADER: X-Forwarded-For
