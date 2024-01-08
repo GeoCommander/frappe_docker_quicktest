@@ -19,7 +19,7 @@ export APPS_JSON='[
   },
   {
     "url": "https://github.com/frappe/helpdesk",
-    "branch": "version-15"
+    "branch": "main"
   },
   {
     "url": "https://github.com/frappe/ecommerce_integrations",
