@@ -65,6 +65,6 @@ future app installations:
 - bench get-app <appname>
 - overide? -no install? -yes
 - bench --site test.orisi.rako.ge install-app <appname> 
-- bench -site test.orisi.rako.ge migrate
+- bench --site test.orisi.rako.ge migrate
 - bench --site test.orisi.rako.ge build
 - stack გააჩერე და ჩართე
