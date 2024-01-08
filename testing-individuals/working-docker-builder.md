@@ -55,5 +55,13 @@ after starting stack on portainer
   - https://docs.erpnext.com/docs/user/manual/en/set_up_e_commerce
 - payments (paypall and stripe)
   - https://docs.erpnext.com/docs/user/manual/en/paypal-integration
+ 
 
+future app installations:
+
+- go to frontend container
+- cd apps
+- git clone <frappe app github url>
+- cd ..
+- bench --site test.orisi.rako.ge install-app <appname> 
 
