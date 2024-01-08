@@ -51,3 +51,9 @@ after starting stack on portainer
 - bench --site test.orisi.rako.ge build
 - თუ რამე პრობლემა წამოიჭრა მაშინ პირველი app-ის ჩაწერის მერე დაამიგრირე და ააშენე
 
+- - webshop (E-comerce on erpnext documentation)
+  - https://docs.erpnext.com/docs/user/manual/en/set_up_e_commerce
+- payments (paypall and stripe)
+  - https://docs.erpnext.com/docs/user/manual/en/paypal-integration
+
+
