@@ -70,7 +70,7 @@ services:
         echo 'y*' | rm -r /home/frappe/frappe-bench/apps/raven;
         cd ~ && git clone https://github.com/GeoCommander/frappe-app-translations.git && cd frappe-app-translations/erpnext;
         cp ka.csv /home/frappe/frappe-bench/apps/erpnext/erpnext/translations/;
-        cd ../frappe && cp languages.json /home/frappe/frappe-bench/apps/frappe/frappe/geo;
+        cd ../frappe && cp languages.json /home/frappe/frappe-bench/apps/frappe/frappe/geo && cd ~/frappe-bench/;
         bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app erpnext --set-default test.orisi.rako.ge; #test with erpnext
         echo 'y' | bench get-app --branch version-15 hrms https://github.com/frappe/hrms;
         echo 'y' | bench get-app --branch version-15 payments https://github.com/frappe/payments;
