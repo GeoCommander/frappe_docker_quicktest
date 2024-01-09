@@ -39,7 +39,6 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   create-site:
-    command: ["bash"]
     image: gioe1996/test-erpnext:latest
     deploy:
       restart_policy:
