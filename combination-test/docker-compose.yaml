@@ -91,7 +91,7 @@ services:
         cp ka.csv /home/frappe/frappe-bench/apps/erpnext/erpnext/translations/;
         cd ../frappe && cp languages.json /home/frappe/frappe-bench/apps/frappe/frappe/geo;
         bench migrate;
-        bench build;"
+        bench build;
 
         
         #bench --site test.orisi.rako.ge install-app payments;
