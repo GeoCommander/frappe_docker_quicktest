@@ -81,9 +81,9 @@ services:
         bench --site test.orisi.rako.ge install-app payments;
         bench --site test.orisi.rako.ge install-app webshop;
         bench --site test.orisi.rako.ge install-app helpdesk;
-        bench --site test.orisi.rako.ge install-app ecommerce_integrations; #some issues
+        bench --site test.orisi.rako.ge install-app ecommerce_integrations;
         bench --site test.orisi.rako.ge install-app raven; #got installed BUT causing issues
-        bench --site test.orisi.rako.ge install-app translator; #got installed
+        bench --site test.orisi.rako.ge install-app translator; #got installed probobly dont ened it
         bench --site test.orisi.rako.ge install-app wiki; #wiki.js is better but its different platform and will require additional backup setup so IDK
         bench migrate;
         bench build;
