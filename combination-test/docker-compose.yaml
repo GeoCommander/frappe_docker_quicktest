@@ -87,9 +87,8 @@ services:
         bench --site test.orisi.rako.ge install-app wiki; #wiki.js is better but its different platform and will require additional backup setup so IDK
         bench migrate;
         bench build;
-        cd ~;
-        git clone https://github.com/GeoCommander/frappe-app-translations.git && cd frappe-app-translations/erpnext;
-        cp ka.csv /home/frappe/frappe-bench/apps/erpnext/erpnext/translations/
+        cd ~ && git clone https://github.com/GeoCommander/frappe-app-translations.git && cd frappe-app-translations/erpnext;
+        cp ka.csv /home/frappe/frappe-bench/apps/erpnext/erpnext/translations/;
 
         
         #bench --site test.orisi.rako.ge install-app payments;
