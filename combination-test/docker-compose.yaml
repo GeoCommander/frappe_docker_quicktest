@@ -49,55 +49,55 @@ services:
     entrypoint:
       - bash
       - -c
-    command: >
-      set -x && 
-      wait-for-it -t 120 db:3306 &&
-      wait-for-it -t 120 redis-cache:6379 &&
-      wait-for-it -t 120 redis-queue:6379 &&
-      export start=`date +%s` &&
-      until [[ -n $(grep -hs ^ sites/common_site_config.json | jq -r ".db_host // empty") ]] &&
-            [[ -n $(grep -hs ^ sites/common_site_config.json | jq -r ".redis_cache // empty") ]] &&
-            [[ -n $(grep -hs ^ sites/common_site_config.json | jq -r ".redis_queue // empty") ]];
-      do
-        echo "Waiting for sites/common_site_config.json to be created" &&
-        sleep 5 &&
-        if (( $(date +%s)-start > 120 )); then
-          echo "could not find sites/common_site_config.json with required keys" &&
-          exit 1
-        fi
-      done &&
-      echo "sites/common_site_config.json found" &&
-      bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app erpnext --set-default test.orisi.rako.ge &&
-      echo 'y' | bench get-app --branch version-15 hrms https://github.com/frappe/hrms &&
-      echo 'y' | bench get-app --branch version-15 payments https://github.com/frappe/payments &&
-      echo 'y' | bench get-app --branch version-15 webshop https://github.com/frappe/webshop &&
-      echo 'y' | bench get-app --branch main helpdesk https://github.com/frappe/helpdesk &&
-      echo 'y' | bench get-app --branch main ecomerce_integrations https://github.com/frappe/ecommerce_integrations &&
-      #echo 'y' | bench get-app --branch develop raven https://github.com/The-Commit-Company/Raven && #did not auto-download and created some issues
-      echo 'y' | bench get-app --branch master translator https://github.com/frappe/translator && #did not download but I dont even think I need this?
-      echo 'y' | bench get-app --branch master wiki https://github.com/frappe/wiki && #did not download but it got installed
-      # additional bench get-app commands if any...
-      bench --site test.orisi.rako.ge install-app hrms &&
-      bench --site test.orisi.rako.ge install-app payments &&
-      bench --site test.orisi.rako.ge install-app webshop &&
-      bench --site test.orisi.rako.ge install-app helpdesk &&
-      bench --site test.orisi.rako.ge install-app ecommerce_integrations &&
-      bench --site test.orisi.rako.ge install-app raven && #got installed BUT causing issues
-      bench --site test.orisi.rako.ge install-app translator && #got installed probobly dont ened it
-      bench --site test.orisi.rako.ge install-app wiki && #wiki.js is better but its different platform and will require additional backup setup so IDK
-      cd ~ && git clone https://github.com/GeoCommander/frappe-app-translations.git && cd frappe-app-translations/erpnext &&
-      cp ka.csv /home/frappe/frappe-bench/apps/erpnext/erpnext/translations/ &&
-      cd ../frappe && cp languages.json /home/frappe/frappe-bench/apps/frappe/frappe/geo &&
-      bench migrate &&
-      bench build;
-                
+    command:
+      - >
+        wait-for-it -t 120 db:3306;
+        wait-for-it -t 120 redis-cache:6379;
+        wait-for-it -t 120 redis-queue:6379;
+        export start=`date +%s`;
+        until [[ -n `grep -hs ^ sites/common_site_config.json | jq -r ".db_host // empty"` ]] && \
+          [[ -n `grep -hs ^ sites/common_site_config.json | jq -r ".redis_cache // empty"` ]] && \
+          [[ -n `grep -hs ^ sites/common_site_config.json | jq -r ".redis_queue // empty"` ]];
+        do
+          echo "Waiting for sites/common_site_config.json to be created";
+          sleep 5;
+          if (( `date +%s`-start > 120 )); then
+            echo "could not find sites/common_site_config.json with required keys";
+            exit 1
+          fi
+        done;
+        echo "sites/common_site_config.json found";
+        bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app erpnext --set-default test.orisi.rako.ge; #test with erpnext
+        echo 'y' | bench get-app --branch version-15 hrms https://github.com/frappe/hrms;
+        echo 'y' | bench get-app --branch version-15 payments https://github.com/frappe/payments;
+        echo 'y' | bench get-app --branch version-15 webshop https://github.com/frappe/webshop;
+        echo 'y' | bench get-app --branch main helpdesk https://github.com/frappe/helpdesk;
+        echo 'y' | bench get-app --branch main ecomerce_integrations https://github.com/frappe/ecommerce_integrations;
+        #echo 'y' | bench get-app --branch develop raven https://github.com/The-Commit-Company/Raven; #did not auto-download and created some issues
+        echo 'y' | bench get-app --branch master translator https://github.com/frappe/translator; #did not download but I dont even think I need this?
+        echo 'y' | bench get-app --branch master wiki https://github.com/frappe/wiki; #did not download but it got installed
+
+        bench --site test.orisi.rako.ge install-app hrms;
+        bench --site test.orisi.rako.ge install-app payments;
+        bench --site test.orisi.rako.ge install-app webshop;
+        bench --site test.orisi.rako.ge install-app helpdesk;
+        bench --site test.orisi.rako.ge install-app ecommerce_integrations;
+        bench --site test.orisi.rako.ge install-app raven; #got installed BUT causing issues
+        bench --site test.orisi.rako.ge install-app translator; #got installed probobly dont ened it
+        bench --site test.orisi.rako.ge install-app wiki; #wiki.js is better but its different platform and will require additional backup setup so IDK
+        cd ~ && git clone https://github.com/GeoCommander/frappe-app-translations.git && cd frappe-app-translations/erpnext;
+        cp ka.csv /home/frappe/frappe-bench/apps/erpnext/erpnext/translations/;
+        cd ../frappe && cp languages.json /home/frappe/frappe-bench/apps/frappe/frappe/geo;
+        bench migrate;
+        bench build;
+
         
-      #bench --site test.orisi.rako.ge install-app payments;
-      #bench --site test.orisi.rako.ge migrate;
-      #bench --site test.orisi.rako.ge build;
-      #bench new-site --install-app websocket drive test.orisi.rako.ge; # individual test
-      #bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app lending --set-default test.orisi.rako.ge; #test with erpnext
-      #bench --site test.orisi.rako.ge install-app webshop;
+        #bench --site test.orisi.rako.ge install-app payments;
+        #bench --site test.orisi.rako.ge migrate;
+        #bench --site test.orisi.rako.ge build;
+        #bench new-site --install-app websocket drive test.orisi.rako.ge; # individual test
+        #bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app lending --set-default test.orisi.rako.ge; #test with erpnext
+        #bench --site test.orisi.rako.ge install-app webshop;
 
   db:
     image: mariadb:10.6
