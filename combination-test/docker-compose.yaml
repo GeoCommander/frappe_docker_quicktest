@@ -89,6 +89,7 @@ services:
         bench build;
         cd ~ && git clone https://github.com/GeoCommander/frappe-app-translations.git && cd frappe-app-translations/erpnext;
         cp ka.csv /home/frappe/frappe-bench/apps/erpnext/erpnext/translations/;
+        cd ../frappe && cp languages.json /home/frappe/frappe-bench/apps/erpnext/erpnext/translations/;
 
         
         #bench --site test.orisi.rako.ge install-app payments;
