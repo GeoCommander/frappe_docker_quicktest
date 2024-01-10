@@ -1,3 +1,7 @@
+some kind of issue with raven idk why but it has bunch of weird failings
+there are some other issues with helpdesk that says: "Socket Connection Error xhr poll error"
+idk if I even need translator?
+
 ```
 git clone https://github.com/frappe/frappe_docker && cd frappe_docker
 export APPS_JSON='[
