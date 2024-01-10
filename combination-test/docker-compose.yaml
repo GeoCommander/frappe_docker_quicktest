@@ -67,7 +67,7 @@ services:
           fi
         done;
         echo "sites/common_site_config.json found";
-bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app erpnext --set-default test.orisi.rako.ge; #test with erpnext
+        bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app erpnext --set-default test.orisi.rako.ge; #test with erpnext
 
 # echo 'y*' | rm -r /home/frappe/frappe-bench/apps/raven;
 # cd ~ && git clone https://github.com/GeoCommander/frappe-app-translations.git && cd frappe-app-translations/erpnext;
