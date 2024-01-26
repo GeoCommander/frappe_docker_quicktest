@@ -224,5 +224,5 @@ volumes:
 #ქვემოთა დავამატე ეხლა
 networks:
   default:
-    name: erp-network
-    driver: bridge
+    external:
+      name: erp-network
