@@ -223,6 +223,6 @@ volumes:
   logs:
 #ქვემოთა დავამატე ეხლა
 networks:
-  my_new_network:
+  default:
+    name: erp-network
     driver: bridge
-
