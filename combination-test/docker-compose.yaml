@@ -221,3 +221,8 @@ volumes:
   redis-cache-data:
   sites:
   logs:
+#ქვემოთა დავამატე ეხლა
+networks:
+  my_new_network:
+    driver: bridge
+
