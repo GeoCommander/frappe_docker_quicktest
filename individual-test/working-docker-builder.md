@@ -46,7 +46,7 @@ after starting stack on portainer
 - visit frontend container console
 - (this step maybe not needed?) bench get-app payments    no მერე yes
 - bench --site test.orisi.rako.ge install-app payments
-- bench --site test orisi.rako.ge install-app webshop
+- bench --site test.orisi.rako.ge install-app webshop
 - bench --site test.orisi.rako.ge migrate
 - bench --site test.orisi.rako.ge build
 - თუ რამე პრობლემა წამოიჭრა მაშინ პირველი app-ის ჩაწერის მერე დაამიგრირე და ააშენე
